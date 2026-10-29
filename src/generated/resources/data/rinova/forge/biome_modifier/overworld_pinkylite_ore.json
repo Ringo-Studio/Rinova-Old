@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": "rinova:overworld_pinkylite_ore",
+  "step": "underground_ores"
+}
