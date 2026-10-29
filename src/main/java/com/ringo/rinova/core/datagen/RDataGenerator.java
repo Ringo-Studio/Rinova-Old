@@ -10,6 +10,7 @@ import com.ringo.rinova.core.datagen.providers.models.RItemModelProvider;
 import com.ringo.rinova.core.datagen.providers.recipe.RRecipeProvider;
 import com.ringo.rinova.core.datagen.providers.tags.RBlockTagsProvider;
 import com.ringo.rinova.core.datagen.providers.tags.RItemTagsProvider;
+import com.ringo.rinova.core.datagen.worldgen.RWorldgenProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -67,6 +68,10 @@ public class RDataGenerator {
 
         // Генерация глобальных модификаторов лута
         generator.addProvider(true, new RGlobalLootModifiersProvider(packOutput));
+
+        // Регистрация WorldGen
+        RWorldgenProvider worldgenData = new RWorldgenProvider(packOutput, lookupProvider);
+        generator.addProvider(true, worldgenData);
 
         // Генерация тегов блоков и предметов
         RBlockTagsProvider blockTagGenerator = generator.addProvider(true,
